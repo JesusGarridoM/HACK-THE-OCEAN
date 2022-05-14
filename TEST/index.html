@@ -45,7 +45,14 @@
             });
 
             //Wait until the map resources are ready.
-            map.events.add('ready', function () {
+            map.events.add('ready', function () {                
+                //Create a HTML marker and add it to the map.
+                marker = new atlas.HtmlMarker({
+                    htmlContent: '<div class="pulseIcon"></div>',
+                    position: [-86.84656, 21.17429] //Cancun
+                });
+                
+                map.markers.add(marker);
 
                 //Create a data source and add it to the map.
                 datasource = new atlas.source.DataSource();
@@ -53,11 +60,10 @@
 
                 //Create circles and add to the data source.
                 datasource.add([
-                    //Create a circle that is 750KM in radius over Brazil.
+                    //Create a circle that is 713KM in radius over Garbage Patch Pacific.
                     new atlas.data.Feature(new atlas.data.Point([-145, 38]), {
                         subType: "Circle",
-                        radius: 713650, //meters
-                        Text: "pacific"                   
+                        radius: 713650, //meters     
 
                     }),
 
@@ -70,6 +76,38 @@
             });
         }
     </script>
+    
+    <style type="text/css">
+        .pulseIcon {
+            display: block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: orange;
+            border: 2px solid white;
+            cursor: pointer;
+            box-shadow: 0 0 0 rgba(0, 204, 255, 0.4);
+            animation: pulse 3s infinite;
+        }
+
+            .pulseIcon:hover {
+                animation: none;
+            }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(0, 204, 255, 0.4);
+            }
+
+            70% {
+                box-shadow: 0 0 0 50px rgba(0, 204, 255, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(0, 204, 255, 0);
+            }
+        }
+    </style>
 </head>
 <body onload="GetMap()">
     <div id="myMap" style="position:relative;width:100%;min-width:290px;height:600px;"></div>
