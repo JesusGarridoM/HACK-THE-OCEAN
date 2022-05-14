@@ -17,7 +17,7 @@
     <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
 
     <script>
-        var map, datasource,marker;
+        var map, datasource,marker,popup, symbolLayer;
 
         function GetMap() {
             //Initialize a map instance.
@@ -62,10 +62,15 @@
                 datasource.add([
                     //Create a circle that is 713KM in radius over Garbage Patch Pacific.
                     new atlas.data.Feature(new atlas.data.Point([-145, 38]), {
+                        name: 'Isla de basura del Pacifico',
                         subType: "Circle",
                         radius: 713650, //meters     
-
                     }),
+                    //Ceate point in landfills
+                    // new atlas.data.Feature(new atlas.data.Point([-105,28]), {
+                    //     name: 'Vertederos 1',
+                    //     description: 'imagen'
+                    // }),
 
                 ]);
 
@@ -73,11 +78,138 @@
                 map.layers.add(new atlas.layer.PolygonLayer(datasource, null, {
                     fillColor: 'rgba(255, 140, 0, 0.5)'
                 }));
+                // //Add a layer for rendering point data as symbols.
+                // symbolLayer = new atlas.layer.SymbolLayer(datasource, null, { iconOptions: {allowOverlap: true}});
+                // map.layers.add(symbolLayer);
+
+                // //Create a popup but leave it closed so we can update it and display it later.
+                // popup = new atlas.Popup({
+                //     position: [0, 0],
+                //     pixelOffset: [0, -18]
+                // });
+
+                //  //Close the popup when the mouse moves on the map.
+                // map.events.add('mousemove', closePopup);
+
+                // /**
+                //  * Open the popup on mouse move or touchstart on the symbol layer.
+                //  * Mouse move is used as mouseover only fires when the mouse initially goes over a symbol. 
+                //  * If two symbols overlap, moving the mouse from one to the other won't trigger the event for the new shape as the mouse is still over the layer.
+                //  */
+                // map.events.add('mousemove', symbolLayer, symbolHovered);
+                // map.events.add('touchstart', symbolLayer, symbolHovered);
+            });
+        }
+        // function closePopup() {
+        //     popup.close();
+        // }
+        
+        // function symbolHovered(e) {
+        //     //Make sure the event occurred on a shape feature.
+        //     if (e.shapes && e.shapes.length > 0) {
+        //         var properties = e.shapes[0].getProperties();
+
+        //         //Update the content and position of the popup.
+        //         popup.setOptions({
+        //             //Create the content of the popup.
+        //             content: `<div style="padding:10px;"><b>${properties.name}</b><br/>${properties.description}</div>`,
+        //             position: e.shapes[0].getCoordinates(),
+        //             pixelOffset: [0, -18]
+        //         });
+
+        //         //Open the popup.
+        //         popup.open(map);
+        //     }
+        // }
+        function zoomMap(offset) {
+            var cam = map.getCamera();
+
+            map.setCamera({
+                //Zoom the map within the range of min/max zoom of the map.
+                zoom: Math.max(cam.minZoom, Math.min(cam.maxZoom, cam.zoom + offset)),
+                type: 'ease',
+                duration: 250
+            })
+        }
+
+        //Number of degrees to change pitch the map per click.
+        const pitchStep = 10;
+
+        function pitchMap(offset) {
+            map.setCamera({
+                //Pitch the map within the range of 0 - 60 degrees.
+                pitch: Math.max(0, Math.min(60, map.getCamera().pitch + offset * pitchStep)),
+                type: 'ease',
+                duration: 250
+            })
+        }
+
+        //Number of degrees to change rotate the map per click.
+        const bearingStep = 15;
+
+        function rotateMap(offset) {
+            map.setCamera({
+                bearing: map.getCamera().bearing + offset * bearingStep,
+                type: 'ease',
+                duration: 250
+            })
+        }
+
+        function mapStyleChanged(elm) {
+            map.setStyle({
+                style: elm.options[elm.selectedIndex].value
             });
         }
     </script>
     
     <style type="text/css">
+        .mapContainer, #myMap {
+            position: relative;
+            width: 100%;
+            min-width: 290px;
+            height: 600px;
+        }
+
+        .controlContainer {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+            .controlContainer .navButton {
+                float: left;
+                margin: 2px;
+                background-color: #fff;
+                box-shadow: rgb(0 0 0 / 16%) 0 0 4px;
+                border: none;
+                border-radius: 2px;
+                width: 32px;
+                height: 32px;
+                padding: 2px 8px;
+                color: black;
+                font-size: 20px;
+                font-weight: bold;
+                text-align: center;
+                text-decoration: none;
+                line-height: 20px;
+                display: inline-block;
+                cursor: pointer;
+            }
+
+            .controlContainer .navButton:hover {
+                color: deepskyblue;
+            }
+
+            .controlContainer .navSelect {                
+                width: 140px;
+                padding: 5px;
+                font-size: 14px;
+            }
+
+                .controlContainer .navSelect:hover {
+                    color: black;
+                }
         .pulseIcon {
             display: block;
             width: 10px;
@@ -110,12 +242,34 @@
     </style>
 </head>
 <body onload="GetMap()">
-    <div id="myMap" style="position:relative;width:100%;min-width:290px;height:600px;"></div>
+    <!-- Wrap the map with a container div that's the same size to make it easy to absolutely position controls anywhere above the map. -->
+    <div class="mapContainer">
+        <div id="myMap"></div>
+
+        <!-- Since we want the controls to appear together, grouping them inside a div that will be absolutely positioned. -->
+        <div class="controlContainer">
+            <button class="navButton" onclick="zoomMap(1)" title="Zoom In">+</button>
+            <button class="navButton" onclick="zoomMap(-1)" title="Zoom Out">⚊</button>
+            <button class="navButton" onclick="pitchMap(-1)" title="Derease Pitch">🠗</button>
+            <button class="navButton" onclick="pitchMap(1)" title="Increase Pitch">🠕</button>
+            <button class="navButton" onclick="rotateMap(-1)" title="Rotate Right">⟳</button>
+            <button class="navButton" onclick="rotateMap(1)" title="Rotate Left">⟲</button>
+
+            <select class="navButton navSelect" onchange="mapStyleChanged(this)" title="Map Style">
+                <option value="road" selected="selected">Road</option>
+                <option value="grayscale_dark">Dark Grayscale</option>
+                <option value="grayscale_light">Light Grayscale</option>
+                <option value="nighty">Night</option>
+                <option value="satellite">Satellite</option>
+                <option value="satellite_road_labels">Hybrid</option>
+            </select>
+        </div>
+    </div>
 
     <fieldset style="width:calc(100% - 30px);min-width:290px;margin-top:10px;">
-        <legend>Mercator Projection and Geospatial Circles</legend>
-        This sample shows how the Mercator projection of the map affects the scale of geospatially accurate objects on the map. 
-        In this sample both circles have a radius of 750KM (750,000 meters). However, the closer the circle is to the North or South pole, the larger and more elliptical it appears.
+        <legend>Custom navigation controls</legend>
+        This sample shows how to create a set of map navigation controls that can be placed anywhere on the page. 
+        Instead of extending the atlas.Control class, this simply floats absolutely positioned HTML controls overtop of the map.
     </fieldset>
 </body>
 </html>
