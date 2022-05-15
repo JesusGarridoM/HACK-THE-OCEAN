@@ -1,4 +1,4 @@
-<template>
+<template class="">
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png">
     <HelloWorld msg="El camino de la basura"/>
