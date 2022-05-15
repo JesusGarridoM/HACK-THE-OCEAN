@@ -1,7 +1,9 @@
 <template>
   <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    <router-link to="/">Inicio</router-link> |
+    <router-link to="/mapa">Mapa</router-link> |
+    <router-link to="/formulario">Formulario</router-link> |
+    <router-link to="/contacto">Contacto</router-link>
   </nav>
   <router-view/>
 </template>
@@ -21,10 +23,14 @@ nav {
 
 nav a {
   font-weight: bold;
-  color: #2c3e50;
+  color: #100d4d;
+}
+
+nav {
+  background-color: lightblue;
 }
 
 nav a.router-link-exact-active {
-  color: #42b983;
+  color: #002fff;
 }
 </style>
