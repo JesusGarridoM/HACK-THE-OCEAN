@@ -21,7 +21,23 @@ En el siguiente enlace se podrá encontrar el diagrama deseñado en la página d
 
 ## Tecnologias implementadas en el desarrollo
 
-En la parte de Front-end se utilizo Vue
+* En la parte de Front-end se utilizo Vue
+
+* Api de Google Maps
+
+* Booststrap
+
+# Desarrollo del proyecto
+
+Entre lo primero que se desarrollo fue el Front-end para el cual se uso los conocimientos proporcionados por el Mission Commander Rodrigo, ya que se uso la versión 3 de Vue, modificando y agregando los archivos necesarios para lo que se necesitaba. Al mismo tiempo se trabaja en el desarrollo del mapa usando una Api de Azure la cual nos permitia llamar a un mapa y colocar ciertas funciones dentro del mismo, como señalar las islas mas contaminadas de México y la isla de basura más cercana a nuestro país.
+
+Luego de terminar de desarrollar esas partes, nos encontramos con un problema imprevisto, ya que el archivo que llamaba a la Api de Azure, al unirlo con Vue no lo acepta, ya que era necesario escribir el código que fuera capaz de interpretarlo. Se realizo una ardua investigación hasta encontrar un repositorio donde venía esa información, sin embargo esto no fue de ayuda, ya que los comandos que se daban eran para la versión 2 de Vue, por lo que se opto por reestructurar el proyecto con la versión necesaria.
+
+De la misma manera la Mission Commander Fernanda nos aconsejo por cambiar la versión de 3 a 2, si eso no lo solucionaba, cambiar de tecnología y en lugar de Vue usar React, o en lugar de usar una Api de Azure ir por Google Maps, o hasta reestructurar todo el proyecto para que funcionara con Java.
+
+Aunque parecía todo solucionado nos encontramos con un último problema, que la Api de Azure seguia sin ser compatible, ya que quedaba poco tiempo para la entrega fue necesario optar por un cambio lo cual llevo a usar un Api de Google maps, al mismo tiempo se seguía con el desarrollo de las demás ventanas del proyecto y la aplicación de los estilos, para lo cual se uso Booststrap.
+
+Cabe mencionar que de la misma forma durante el desarrollo del proyecto contamos con otros problemas más externos, como problemas con los equipos de computo de algunos compañeros, por lo que fue necesario ir asignandoles otras tareas.
 
 # Partes que componen el sitio
 
