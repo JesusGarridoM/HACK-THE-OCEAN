@@ -1,5 +1,201 @@
 <template>
-  <div class="mapa">
-    <h1>This is an about page</h1>
-  </div>
+<div onload="GetMap()">
+    <!-- Wrap the map with a container div that's the same size to make it easy to absolutely position controls anywhere above the map. -->
+    <div class="mapContainer">
+        <div id="myMap"></div>
+
+        <!-- Since we want the controls to appear together, grouping them inside a div that will be absolutely positioned. -->
+        <div class="controlContainer">
+            <button class="navButton" onclick="zoomMap(1)" title="Zoom In">+</button>
+            <button class="navButton" onclick="zoomMap(-1)" title="Zoom Out">⚊</button>
+            <button class="navButton" onclick="pitchMap(-1)" title="Derease Pitch">🠗</button>
+            <button class="navButton" onclick="pitchMap(1)" title="Increase Pitch">🠕</button>
+            <button class="navButton" onclick="rotateMap(-1)" title="Rotate Right">⟳</button>
+            <button class="navButton" onclick="rotateMap(1)" title="Rotate Left">⟲</button>
+
+            <select class="navButton navSelect" onchange="mapStyleChanged(this)" title="Map Style">
+                <option value="road" selected="selected">Road</option>
+                <option value="grayscale_dark">Dark Grayscale</option>
+                <option value="grayscale_light">Light Grayscale</option>
+                <option value="nighty">Night</option>
+                <option value="satellite">Satellite</option>
+                <option value="satellite_road_labels">Hybrid</option>
+            </select>
+        </div>
+    </div>
+
+    <fieldset style="width:calc(100% - 30px);min-width:290px;margin-top:10px;">
+        <legend>Custom navigation controls</legend>
+        This sample shows how to create a set of map navigation controls that can be placed anywhere on the page. 
+        Instead of extending the atlas.Control class, this simply floats absolutely positioned HTML controls overtop of the map.
+    </fieldset>
+</div>
 </template>
+
+
+<script>
+  var map, datasource,marker,popup, symbolLayer;
+
+  function GetMap() {
+      //Initialize a map instance.
+      map = new atlas.Map('myMap', {
+          center: [-102, 23],
+          zoom: 4,
+          view: 'Auto',
+
+          //Add authentication details for connecting to Azure Maps.
+          authOptions: {
+              //Use Azure Active Directory authentication.
+              // authType: 'anonymous',
+              // clientId: 'e6b6ab59-eb5d-4d25-aa57-581135b927f0', //Your Azure Maps client id for accessing your Azure Maps account.
+              // getToken: function (resolve, reject, map) {
+              //     //URL to your authentication service that retrieves an Azure Active Directory Token.
+              //     var tokenServiceUrl = "https://samples.azuremaps.com/api/GetAzureMapsToken";
+
+              //     fetch(tokenServiceUrl).then(r => r.text()).then(token => resolve(token));
+              // }
+
+              //Alternatively, use an Azure Maps key. Get an Azure Maps key at https://azure.com/maps. NOTE: The primary key should be used as the key.
+              authType: 'subscriptionKey',
+              subscriptionKey: 'tfzfpI7uplfPVTBJZvwca0vOmRYOltJABNAH3pPJEjY'
+          }
+      });
+
+      //Wait until the map resources are ready.
+      map.events.add('ready', function () {                
+          //Create a HTML marker and add it to the map.
+          m01 = new atlas.HtmlMarker({
+              htmlContent: '<div class="pulseIcon"></div>',                    
+              position: [-117.06324180144405,32.37049754577993] //Rosarito
+          });
+          m02 = new atlas.HtmlMarker({
+              htmlContent: '<div class="pulseIcon"></div>',
+              position: [-101.55755411991893,17.638486717334544] //Zihuatanejo
+          });
+          m03 = new atlas.HtmlMarker({
+              htmlContent: '<div class="pulseIcon"></div>',
+              position: [-114.83528656556933,31.047473311820674] //Playa lindo
+          });
+          m04 = new atlas.HtmlMarker({
+              htmlContent: '<div class="pulseIcon"></div>',
+              position: [-108.51914797063482,25.29659084739178] //Las glorias
+          });
+          m05 = new atlas.HtmlMarker({
+              htmlContent: '<div class="pulseIcon"></div>',
+              position: [-96.09755272825876,19.197591511778224] //Mocambo
+          });
+          m06 = new atlas.HtmlMarker({
+              htmlContent: '<div class="pulseIcon"></div>',
+              position: [-86.84656, 21.17429] //Cancun
+          });
+          
+          map.markers.add(m01);
+          map.markers.add(m02);
+          map.markers.add(m03);
+          map.markers.add(m04);
+          map.markers.add(m05);
+          map.markers.add(m06);
+
+          //Create a data source and add it to the map.
+          datasource = new atlas.source.DataSource();
+          map.sources.add(datasource);
+
+          //Create circles and add to the data source.
+          datasource.add([
+              //Create a circle that is 713KM in radius over Garbage Patch North Pacific.
+              new atlas.data.Feature(new atlas.data.Point([-145, 38]), {
+                  subType: "Circle",
+                  radius: 713650, //meters     
+              }),
+              //South Pacific 
+              new atlas.data.Feature(new atlas.data.Point([-95.75045247412872,-26.6057007881067]), {
+                  subType: "Circle",
+                  radius: 713650, //meters     
+              }),
+              //North Atlantic
+              new atlas.data.Feature(new atlas.data.Point([-37.566862525156196,32.53062088068157,]), {
+                  subType: "Circle",
+                  radius: 713650, //meters     
+              }),
+              //South Atlantic
+              new atlas.data.Feature(new atlas.data.Point([-12.781707894324986,-25.97531189943557]), {
+                  subType: "Circle",
+                  radius: 713650, //meters     
+              }),
+              //Indian Ocean
+              new atlas.data.Feature(new atlas.data.Point([70.53860652341397,-30.313599633700694]), {
+                  subType: "Circle",
+                  radius: 713650, //meters     
+              }),
+          ]);
+
+          //Create a polygon layer to render the filled in area of the circle polygon, and add it to the map.
+          map.layers.add(new atlas.layer.PolygonLayer(datasource, null, {
+              fillColor: 'rgba(255, 140, 0, 0.5)'
+          }));
+          
+      // //Create a bubble layer to render the filled in area of the circle, and add it to the map.
+      // map.layers.add(new atlas.layer.BubbleLayer(dataSourcem, null, {
+      //     radius: 5,
+      //     strokeColor: "#4288f7",
+      //     strokeWidth: 6, 
+      //     color: "white" 
+      // }));
+      });
+  }
+  //Add point locations.
+  // var pointsm = [
+  //         new atlas.data.Point([-101.55755411991893,17.638486717334544])
+  //         // new atlas.data.Point([-73.985600, 40.76542]),
+  //         // new atlas.data.Point([-73.985550, 40.77900]),
+  //         // new atlas.data.Point([-73.975550, 40.74859]),
+  //         // new atlas.data.Point([-73.968900, 40.78859])
+  //     ];
+
+  //     //Create a data source and add it to the map.
+  //     var dataSourcem = new atlas.source.DataSource();
+  //     map.sources.add(dataSourcem);
+
+  //     //Add multiple points to the data source.
+  //     dataSourcem.add(pointsm);
+
+  function zoomMap(offset) {
+      var cam = map.getCamera();
+
+      map.setCamera({
+          //Zoom the map within the range of min/max zoom of the map.
+          zoom: Math.max(cam.minZoom, Math.min(cam.maxZoom, cam.zoom + offset)),
+          type: 'ease',
+          duration: 250
+      })
+  }
+
+  //Number of degrees to change pitch the map per click.
+  const pitchStep = 10;
+
+  function pitchMap(offset) {
+      map.setCamera({
+          //Pitch the map within the range of 0 - 60 degrees.
+          pitch: Math.max(0, Math.min(60, map.getCamera().pitch + offset * pitchStep)),
+          type: 'ease',
+          duration: 250
+      })
+  }
+
+  //Number of degrees to change rotate the map per click.
+  const bearingStep = 15;
+
+  function rotateMap(offset) {
+      map.setCamera({
+          bearing: map.getCamera().bearing + offset * bearingStep,
+          type: 'ease',
+          duration: 250
+      })
+  }
+
+  function mapStyleChanged(elm) {
+      map.setStyle({
+          style: elm.options[elm.selectedIndex].value
+      });
+  }
+</script>
