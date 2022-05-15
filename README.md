@@ -19,7 +19,7 @@ Personas de entre 18 a 35, sin importar el género.
 
 En el siguiente enlace se podrá encontrar el diagrama deseñado en la página de Miro: https://miro.com/app/board/uXjVO0qHyDI=/?share_link_id=173608525418
 
-## Tecnologias implementas en el desarrollo
+## Tecnologias implementadas en el desarrollo
 
 En la parte de Front-end se utilizo Vue
 
