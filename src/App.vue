@@ -88,6 +88,10 @@ nav a.router-link-exact-active {
    z-index: 1000;
 }
 
+.paddingTopHeightHeader{
+  padding-top: 70px;
+}
+
 .letterMain {
   font-family: 'Raleway';
 }
