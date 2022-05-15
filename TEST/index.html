@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <title>Mercator Projection and Geospatial Circles - Azure Maps Web SDK Samples</title>
@@ -47,12 +47,37 @@
             //Wait until the map resources are ready.
             map.events.add('ready', function () {                
                 //Create a HTML marker and add it to the map.
-                marker = new atlas.HtmlMarker({
+                m01 = new atlas.HtmlMarker({
+                    htmlContent: '<div class="pulseIcon"></div>',                    
+                    position: [-117.06324180144405,32.37049754577993] //Rosarito
+                });
+                m02 = new atlas.HtmlMarker({
+                    htmlContent: '<div class="pulseIcon"></div>',
+                    position: [-101.55755411991893,17.638486717334544] //Zihuatanejo
+                });
+                m03 = new atlas.HtmlMarker({
+                    htmlContent: '<div class="pulseIcon"></div>',
+                    position: [-114.83528656556933,31.047473311820674] //Playa lindo
+                });
+                m04 = new atlas.HtmlMarker({
+                    htmlContent: '<div class="pulseIcon"></div>',
+                    position: [-108.51914797063482,25.29659084739178] //Las glorias
+                });
+                m05 = new atlas.HtmlMarker({
+                    htmlContent: '<div class="pulseIcon"></div>',
+                    position: [-96.09755272825876,19.197591511778224] //Mocambo
+                });
+                m06 = new atlas.HtmlMarker({
                     htmlContent: '<div class="pulseIcon"></div>',
                     position: [-86.84656, 21.17429] //Cancun
                 });
                 
-                map.markers.add(marker);
+                map.markers.add(m01);
+                map.markers.add(m02);
+                map.markers.add(m03);
+                map.markers.add(m04);
+                map.markers.add(m05);
+                map.markers.add(m06);
 
                 //Create a data source and add it to the map.
                 datasource = new atlas.source.DataSource();
@@ -60,67 +85,63 @@
 
                 //Create circles and add to the data source.
                 datasource.add([
-                    //Create a circle that is 713KM in radius over Garbage Patch Pacific.
+                    //Create a circle that is 713KM in radius over Garbage Patch North Pacific.
                     new atlas.data.Feature(new atlas.data.Point([-145, 38]), {
-                        name: 'Isla de basura del Pacifico',
                         subType: "Circle",
                         radius: 713650, //meters     
                     }),
-                    //Ceate point in landfills
-                    // new atlas.data.Feature(new atlas.data.Point([-105,28]), {
-                    //     name: 'Vertederos 1',
-                    //     description: 'imagen'
-                    // }),
-
+                    //South Pacific 
+                    new atlas.data.Feature(new atlas.data.Point([-95.75045247412872,-26.6057007881067]), {
+                        subType: "Circle",
+                        radius: 713650, //meters     
+                    }),
+                    //North Atlantic
+                    new atlas.data.Feature(new atlas.data.Point([-37.566862525156196,32.53062088068157,]), {
+                        subType: "Circle",
+                        radius: 713650, //meters     
+                    }),
+                    //South Atlantic
+                    new atlas.data.Feature(new atlas.data.Point([-12.781707894324986,-25.97531189943557]), {
+                        subType: "Circle",
+                        radius: 713650, //meters     
+                    }),
+                    //Indian Ocean
+                    new atlas.data.Feature(new atlas.data.Point([70.53860652341397,-30.313599633700694]), {
+                        subType: "Circle",
+                        radius: 713650, //meters     
+                    }),
                 ]);
 
                 //Create a polygon layer to render the filled in area of the circle polygon, and add it to the map.
                 map.layers.add(new atlas.layer.PolygonLayer(datasource, null, {
                     fillColor: 'rgba(255, 140, 0, 0.5)'
                 }));
-                // //Add a layer for rendering point data as symbols.
-                // symbolLayer = new atlas.layer.SymbolLayer(datasource, null, { iconOptions: {allowOverlap: true}});
-                // map.layers.add(symbolLayer);
-
-                // //Create a popup but leave it closed so we can update it and display it later.
-                // popup = new atlas.Popup({
-                //     position: [0, 0],
-                //     pixelOffset: [0, -18]
-                // });
-
-                //  //Close the popup when the mouse moves on the map.
-                // map.events.add('mousemove', closePopup);
-
-                // /**
-                //  * Open the popup on mouse move or touchstart on the symbol layer.
-                //  * Mouse move is used as mouseover only fires when the mouse initially goes over a symbol. 
-                //  * If two symbols overlap, moving the mouse from one to the other won't trigger the event for the new shape as the mouse is still over the layer.
-                //  */
-                // map.events.add('mousemove', symbolLayer, symbolHovered);
-                // map.events.add('touchstart', symbolLayer, symbolHovered);
+                
+            // //Create a bubble layer to render the filled in area of the circle, and add it to the map.
+            // map.layers.add(new atlas.layer.BubbleLayer(dataSourcem, null, {
+            //     radius: 5,
+            //     strokeColor: "#4288f7",
+            //     strokeWidth: 6, 
+            //     color: "white" 
+            // }));
             });
         }
-        // function closePopup() {
-        //     popup.close();
-        // }
-        
-        // function symbolHovered(e) {
-        //     //Make sure the event occurred on a shape feature.
-        //     if (e.shapes && e.shapes.length > 0) {
-        //         var properties = e.shapes[0].getProperties();
+        //Add point locations.
+        // var pointsm = [
+        //         new atlas.data.Point([-101.55755411991893,17.638486717334544])
+        //         // new atlas.data.Point([-73.985600, 40.76542]),
+        //         // new atlas.data.Point([-73.985550, 40.77900]),
+        //         // new atlas.data.Point([-73.975550, 40.74859]),
+        //         // new atlas.data.Point([-73.968900, 40.78859])
+        //     ];
 
-        //         //Update the content and position of the popup.
-        //         popup.setOptions({
-        //             //Create the content of the popup.
-        //             content: `<div style="padding:10px;"><b>${properties.name}</b><br/>${properties.description}</div>`,
-        //             position: e.shapes[0].getCoordinates(),
-        //             pixelOffset: [0, -18]
-        //         });
+        //     //Create a data source and add it to the map.
+        //     var dataSourcem = new atlas.source.DataSource();
+        //     map.sources.add(dataSourcem);
 
-        //         //Open the popup.
-        //         popup.open(map);
-        //     }
-        // }
+        //     //Add multiple points to the data source.
+        //     dataSourcem.add(pointsm);
+
         function zoomMap(offset) {
             var cam = map.getCamera();
 
