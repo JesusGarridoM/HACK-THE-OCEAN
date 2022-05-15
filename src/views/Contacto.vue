@@ -1,5 +1,5 @@
 <template>
   <div class="contacto">
-    <h1>This is an about page</h1>
+    <h1>Página para contacto de empresas para proponer economía circular</h1>
   </div>
 </template>
