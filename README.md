@@ -10,18 +10,32 @@ Evitar que la basura llege a los océanos, esto sera posible, desarrollando una 
 ## Público objetivo
 
 Empresario millenias que inicien una Startup, y produzcan desechos plásticos y estén dispuestos a adoptar medidas de reciclaje mediante un plan de negocios.
+Personas de entre 18 a 35, sin importar el género.
 
 ## Buyer persona
 
-Personas de entre 18 a 35, sin importar el género.
+Juan Perez, 25 años, trabaja en equipo de marketing de una starup.
+Le teme a la catastrofe climatica.
+Busca una manera directa de limpiar quitar basura en el oceano.
+
+Fernanda Lemus, 18 años, estudiante de ingeniería.
+Le preocupa la extinción de las especies por el plastico en el oceano.
+Quiere ayudar pero no sabe como.
 
 ## Diagrama de solución
 
 En el siguiente enlace se podrá encontrar el diagrama deseñado en la página de Miro: https://miro.com/app/board/uXjVO0qHyDI=/?share_link_id=173608525418
 
+## Maqueta de figma
+
+En este enlace aparece la maqueta que se desarrollo para el frontend https://www.figma.com/file/vMA7Ph7mjFHcxSilUBXfbH/Untitled?node-id=5%3A41
+Los que estan en 'wireframe' son los buenos.
+
 ## Tecnologias implementadas en el desarrollo
 
 * En la parte de Front-end se utilizo Vue
+
+* Control de versiones con git
 
 * Api de Google Maps
 
