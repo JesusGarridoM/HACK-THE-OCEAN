@@ -4,13 +4,12 @@
     <HelloWorld msg="El camino de la basura"/>
 
     <div>
-      Objetivo de la pagina
+      Uno de los mayores problemas que encontramos en los océanos son las islas de basura, las cuales se generan por los desechos que las empresas, embarcaciones, plataformas o turistas y personas que viven cerca de cuerpos de agua y solo tiran la basura ahí, lo que hace que sea llevada por las corrientes marinas hasta cierto punto de los océanos donde se concentra una gran cantidad de desechos creando lo que se llama "Islas de basura". 
     </div>
     
     <div id="contenedor">
       <div>
         <img src="../assets/imagenes/TirarBasura.jpg">
-        <p>Imagen basura en las calles</p>
       </div>
       <div>
         <p id="contenido">El viaje comienza cuando alguíen tira su basura en la vía publica</p>
@@ -23,14 +22,12 @@
       </div>
       <div>
         <img src="../assets/imagenes/BasuraAlcantarilla.jpg">
-        <p>Imagen basura en la alcantarilla</p>
       </div>
     </div>
     
     <div id="contenedor">
       <div>
         <img src="../assets/imagenes/RioContaminado.jpg">
-        <p>Imagen rio contaminado</p>
       </div>
       <div>
         <p id="contenido">Despues viaja por el sistema de drenaje hasta el mar o ríos</p>
@@ -43,14 +40,12 @@
       </div>
       <div>
         <img src="../assets/imagenes/BasuraPlaya.jpg">
-        <p>Imagen basura en la playa</p>
       </div>
     </div>
     
     <div id="contenedor">
       <div>
         <img src="../assets/imagenes/BasuraMar.jpg">
-        <p>Imagen mar contaminado</p>
       </div>
       <div>
         <p id="contenido">Una vez en el oceano, la basura afecta la vida marina</p>
@@ -63,7 +58,6 @@
       </div>
       <div>
         <img src="../assets/imagenes/IslaBasura.jpg">
-        <p>Imagen islas de basura</p>
       </div>
     </div>
 
@@ -81,6 +75,7 @@ export default {
     HelloWorld
   }
 }
+
 </script>
 
 <style scoped>
