@@ -22,6 +22,8 @@ En el siguiente enlace se podrá encontrar el diagrama deseñado en la página d
 ## Tecnologias implementadas en el desarrollo
 
 En la parte de Front-end se utilizo Vue
+Api de Google Maps
+Booststrap
 
 # Desarrollo del proyecto
 
