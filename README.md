@@ -23,7 +23,7 @@ En el siguiente enlace se podrá encontrar el diagrama deseñado en la página d
 
 En la parte de Front-end se utilizo Vue
 
-#Desarrollo del proyecto
+# Desarrollo del proyecto
 
 Entre lo primero que se desarrollo fue el Front-end para el cual se uso los conocimientos proporcionados por el Mission Commander Rodrigo, ya que se uso la versión 3 de Vue, modificando y agregando los archivos necesarios para lo que se necesitaba. Al mismo tiempo se trabaja en el desarrollo del mapa usando una Api de Azure la cual nos permitia llamar a un mapa y colocar ciertas funciones dentro del mismo, como señalar las islas mas contaminadas de México y la isla de basura más cercana a nuestro país.
 
