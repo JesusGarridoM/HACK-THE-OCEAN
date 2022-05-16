@@ -10,25 +10,35 @@ Evitar que la basura llege a los océanos, esto sera posible, desarrollando una 
 ## Público objetivo
 
 Empresario millenias que inicien una Startup, y produzcan desechos plásticos y estén dispuestos a adoptar medidas de reciclaje mediante un plan de negocios.
+
 Personas de entre 18 a 35, sin importar el género.
 
 ## Buyer persona
 
 Juan Perez, 25 años, trabaja en equipo de marketing de una starup.
+
 Le teme a la catastrofe climatica.
+
 Busca una manera directa de limpiar quitar basura en el oceano.
 
 Fernanda Lemus, 18 años, estudiante de ingeniería.
+
 Le preocupa la extinción de las especies por el plastico en el oceano.
+
 Quiere ayudar pero no sabe como.
 
 ## Diagrama de solución
 
-En el siguiente enlace se podrá encontrar el diagrama deseñado en la página de Miro: https://miro.com/app/board/uXjVO0qHyDI=/?share_link_id=173608525418
+![](./src/assets/imagenes/Flowchart.jpg)
+
+![](./src/assets/imagenes/Flowchart2.jpg)
+
+O puedes visitar la página de Miro para verlo de mejor manera: [Diagrama de solución](https://miro.com/app/board/uXjVO0qHyDI=/?share_link_id=173608525418)
 
 ## Maqueta de figma
 
 En este enlace aparece la maqueta que se desarrollo para el frontend https://www.figma.com/file/vMA7Ph7mjFHcxSilUBXfbH/Untitled?node-id=5%3A41
+
 Los que estan en 'wireframe' son los buenos.
 
 ## Tecnologias implementadas en el desarrollo
@@ -41,13 +51,15 @@ Los que estan en 'wireframe' son los buenos.
 
 * Booststrap
 
+* Azure Static App 
+
 # Link de la página desplegada en Azure
 
 Aquí puedes acceder: [HelpOceans](https://yellow-river-04a0d530f.1.azurestaticapps.net/)
 
 # Link del video de Tiktok
 
-
+Aquí puedes conocer sobre el proyecto: [Tiktok HelpOceans](https://vm.tiktok.com/ZMLc39h9g/?k=1)
 
 # Desarrollo del proyecto
 
