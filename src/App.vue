@@ -174,5 +174,15 @@ nav a.router-link-exact-active {
     display: block;
 }
 
+.heightFormularios{
+    height: 300px;
+}
+
+.imgContact{
+    width: 80%
+  }
+  .titleImgContact{
+    font-size: 100px;
+  }
 </style>
 
