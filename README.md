@@ -85,13 +85,17 @@ Aquí tendremos un mapa donde se mostrarán ciertos puntos, tales como algunas d
 
 ![](./src/assets/imagenes/Mapa.gif)
 
-## Formulario 1
+## Registro de aportación al medio ambiente
 
 Los usuarios llenarán un formulario con la finalidad de saber que tanto llegarian a contribuir con las islas de basura si los desechos llegarán hasta ahí, dando una aproximación.
 
-## Formulario 2
+![](./src/assets/imagenes/Formulario1.gif)
+
+## Registro de empresa
 
 En este formulario los interesados colocarán sus datos de contacto para que nos comuniquemos con ellos y podamos darles una solución fiable y que no cause contaminación, reutilizando lo que se pueda dando como ejemplo algunos proyectos que ya existen, tales como la creación de pulseras con plásticos reciclados o incluso como lo que se nos presento por parte de los Mission Comanders donde se crean mouse de computadora a partir de productos reciclados.
+
+![](./src/assets/imagenes/Formulario2.gif)
 
 ## Integrantes del equipo
 
