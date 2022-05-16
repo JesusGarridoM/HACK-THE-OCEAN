@@ -59,11 +59,13 @@ Cabe mencionar que de la misma forma durante el desarrollo del proyecto contamos
 
 En esta parte se podrá visualizar una pequeña historia de como la basura viaja hasta llegar a ser parte de una isla de basura, con la finalidad de concientizar a las personas de los daños que causan al contaminar los océanos, para que de esta manera se pueda observar como se esta impactando, y como afecta a nuestro planeta. La historia inicia desde donde nace una basura, que puede ser en cualquier parte del país o del mundo pero terminará en el mismo lugar siempre.
 
-![](./src/assets/imagenes/)
+
 
 ## Mapa
 
-Aquí tendremos un mapa donde se mostrarán ciertos puntos, tales como la isla de basura más cercana a nuestro país, algunas de las islas más contamidas, y de la misma forma el usuario podrá visualizar cierta información sobre esos sitios, para que puedan observar de una manera más real el daño que se a hecho a muchos lugares turisticos. 
+Aquí tendremos un mapa donde se mostrarán ciertos puntos, tales como algunas de las islas más contamidas, y de la misma forma el usuario podrá visualizar cierta información sobre esos sitios, para que puedan observar de una manera más real el daño que se a hecho a muchos lugares turisticos.
+
+![](./src/assets/imagenes/2022-05-15(6).png)
 
 ## Formulario 1
 
