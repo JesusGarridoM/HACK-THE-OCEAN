@@ -59,17 +59,19 @@ Cabe mencionar que de la misma forma durante el desarrollo del proyecto contamos
 
 # Partes que componen el sitio
 
+![](./src/assets/imagenes/Pagina.gif)
+
 ## Inicio 
 
 En esta parte se podrá visualizar una pequeña historia de como la basura viaja hasta llegar a ser parte de una isla de basura, con la finalidad de concientizar a las personas de los daños que causan al contaminar los océanos, para que de esta manera se pueda observar como se esta impactando, y como afecta a nuestro planeta. La historia inicia desde donde nace una basura, que puede ser en cualquier parte del país o del mundo pero terminará en el mismo lugar siempre.
 
-
+![](./src/assets/imagenes/Inicio.gif)
 
 ## Mapa
 
 Aquí tendremos un mapa donde se mostrarán ciertos puntos, tales como algunas de las islas más contamidas, y de la misma forma el usuario podrá visualizar cierta información sobre esos sitios, para que puedan observar de una manera más real el daño que se a hecho a muchos lugares turisticos.
 
-
+![](./src/assets/imagenes/Mapa.gif)
 
 ## Formulario 1
 
