@@ -41,6 +41,10 @@ Los que estan en 'wireframe' son los buenos.
 
 * Booststrap
 
+# Link de la página desplegada en Azure
+
+Aquí puedes acceder: https://yellow-river-04a0d530f.1.azurestaticapps.net/
+
 # Desarrollo del proyecto
 
 Entre lo primero que se desarrollo fue el Front-end para el cual se uso los conocimientos proporcionados por el Mission Commander Rodrigo, ya que se uso la versión 3 de Vue, modificando y agregando los archivos necesarios para lo que se necesitaba. Al mismo tiempo se trabaja en el desarrollo del mapa usando una Api de Azure la cual nos permitia llamar a un mapa y colocar ciertas funciones dentro del mismo, como señalar las islas mas contaminadas de México y la isla de basura más cercana a nuestro país.
@@ -65,7 +69,7 @@ En esta parte se podrá visualizar una pequeña historia de como la basura viaja
 
 Aquí tendremos un mapa donde se mostrarán ciertos puntos, tales como algunas de las islas más contamidas, y de la misma forma el usuario podrá visualizar cierta información sobre esos sitios, para que puedan observar de una manera más real el daño que se a hecho a muchos lugares turisticos.
 
-![](./src/assets/imagenes/2022-05-15(6).png)
+
 
 ## Formulario 1
 
