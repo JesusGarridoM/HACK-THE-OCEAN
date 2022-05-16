@@ -1,10 +1,12 @@
 <template>
   <div class="paddingTopHeightHeader">
     <div class="formulario">
+      <h4 class="mb-4">Registro tus aportaciones al medio ambiente, Pon tu granito de arena!!!!</h4>
+      
       <div class="container">
         <div class="row">
           <div class="col-6">
-            <h4 class="mb-2">Registro tus aportaciones al medio ambiente, Pon tu granito de arena!!!!</h4>
+            <p class="mb-1">¿Que tipo de residuo son los que desechan y en que promedio medido en Kilogramos?</p>
           </div>
         </div>
         <hr>
