@@ -1,5 +1,5 @@
 # HelpOceans
-## Problematica 
+## Problemática 
 
 Uno de los mayores problemas que encontramos en los océanos son las islas de basura, las cuales se generan por los desechos que las empresas, embarcaciones, plataformas o turistas y personas que viven cerca de cuerpos de agua y solo tiran la basura ahí, lo que hace que sea llevada por las corrientes marinas hasta cierto punto de los océanos donde se concentra una gran cantidad de desechos creando lo que se llama "Islas de basura". 
 
@@ -16,15 +16,11 @@ Personas de entre 18 a 35, sin importar el género.
 ## Buyer persona
 
 Juan Perez, 25 años, trabaja en equipo de marketing de una starup.
-
 Le teme a la catastrofe climatica.
-
 Busca una manera directa de limpiar quitar basura en el oceano.
 
 Fernanda Lemus, 18 años, estudiante de ingeniería.
-
 Le preocupa la extinción de las especies por el plastico en el oceano.
-
 Quiere ayudar pero no sabe como.
 
 ## Diagrama de solución
