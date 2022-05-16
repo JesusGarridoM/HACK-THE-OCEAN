@@ -43,7 +43,11 @@ Los que estan en 'wireframe' son los buenos.
 
 # Link de la página desplegada en Azure
 
-Aquí puedes acceder: https://yellow-river-04a0d530f.1.azurestaticapps.net/
+Aquí puedes acceder: [HelpOceans](https://yellow-river-04a0d530f.1.azurestaticapps.net/)
+
+# Link del video de Tiktok
+
+
 
 # Desarrollo del proyecto
 
